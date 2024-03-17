@@ -7,7 +7,7 @@ RUN pip install -r requirements.txt \
       && python scripts/docs.py build-all
 
 
-FROM nginx:mainline-alpine
+FROM nginx:1.25.4-alpine3.18
 COPY --from=build-stage /opt/ctf-wiki/site /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
